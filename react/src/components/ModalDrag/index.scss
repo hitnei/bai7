@@ -1,0 +1,14 @@
+@import "../../assets/styles/variables";
+
+.item-drag {
+  background-color: $light;
+  color: $dark75;
+  border-radius: 5px;
+  padding: 0.5rem 0 0.5rem 0.8rem;
+  font-weight: 500;
+  min-height: 41px;
+}
+.nestable-item.is-dragging:before {
+  background-color: tint($blue, 80);
+  border-color: $blue;
+}

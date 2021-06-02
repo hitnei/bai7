@@ -1,0 +1,20 @@
+@import "../../../assets/styles/variables";
+
+
+.move-drag {
+  cursor: move;
+}
+.drag-vertical {
+  > .smooth-dnd-draggable-wrapper {
+    margin: 25px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.12), 0 1px 1px rgba(0,0,0,.24);
+  }
+}
+.drag-horizontal {
+  width: 100%;
+  > div {
+    padding: 5px;
+
+    > .ant-card > .ant-card-body { padding: 0; }
+  }
+}

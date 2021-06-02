@@ -1,0 +1,36 @@
+.ant-table{
+  &-filter {
+    &-trigger  {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+    }
+    &-dropdown{
+      width: 230px;
+      padding: 4px;
+
+      .ant-btn {
+        margin-top: 4px;
+        width: calc(50% - 2px);
+      }
+
+      .ant-checkbox-group,
+      .ant-radio-group {
+        max-height: 230px;
+        width: 100%;
+        overflow: auto;
+        display: block;
+      }
+
+      .ant-radio-wrapper,
+      .ant-checkbox-wrapper{
+        width: 100%;
+        margin-right: 0;
+      }
+    }
+  }
+  &-pagination.ant-pagination {
+    margin-bottom: 6px;
+  }
+}

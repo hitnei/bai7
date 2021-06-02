@@ -1,0 +1,22 @@
+@import "./src/assets/styles/variables";
+
+.ant-form {
+  &.ant-form-horizontal {
+    .ant-form-item-label > label {
+      height: 38px;
+    }
+  }
+
+  .media-item {
+    width: 122px;
+    height: 122px;
+    background-color: rgba($light, 0.4);
+    border-radius: 4px;
+    border: dashed 1px $blue;
+    overflow: hidden;
+    align-content: center;
+    justify-content: center;
+    display: inline-grid;
+    text-align: center;
+  }
+}

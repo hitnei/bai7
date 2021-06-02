@@ -1,0 +1,27 @@
+$dark59: #9d9fa1;
+$dark75: #555555;
+$dark: #1e1e2d;
+$dark_select: #1b1b28;
+$white: #ffffff;
+$black: #000000;
+$blue: #1034a6;
+$blue-light: #d7e7ff;
+
+$muted: #B5B5C3;
+$light: #EEF4FB;
+$success: #1cc962;
+$light-success: #C9F7F5;
+$danger: #F64E60;
+$light-danger: #FFE2E5;
+$info: #8950FC;
+$light-info: #EEE5FF;
+$warning: #FFA800;
+$light-warning: #FFF4DE;
+
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}

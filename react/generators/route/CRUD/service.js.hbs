@@ -1,0 +1,59 @@
+import axios from 'axios';
+import {message} from "antd";
+import routerLinks from "../../../utils/routerLinks";
+{{#if isGroup}}
+import {handGetParent, handPostParent} from "../../../utils/core";
+{{/if}}
+
+export const Get{{properCase name}} = async (params) => {
+  const {data} = await axios.get(routerLinks("{{properCase name}}", "api"), {params});
+  return data;
+};
+export const Post{{properCase name}} = async (values) => {
+  const {data} = await axios.post(routerLinks("{{properCase name}}", "api"), values);
+  if (data.message) message.success(data.message);
+  return data;
+};
+export const Put{{properCase name}} = async (values, id) => {
+  const {data} = await axios.put(routerLinks("{{properCase name}}", "api") + '/' + id, values);
+  if (data.message) message.success(data.message);
+  return data;
+};
+export const Delete{{properCase name}} = async (id) => {
+  const {data} = await axios.delete(routerLinks("{{properCase name}}", "api") + '/' + id);
+  if (data.message) message.success(data.message);
+  return null;
+};
+export const Patch{{properCase name}} = async (values, id) => {
+  const {data} = await axios.patch(routerLinks("{{properCase name}}", "api") + '/' + id, values);
+  if (data.message) message.success(data.message);
+};
+{{#if isGroup}}
+export const Get{{properCase nameGroup}} = async () => handGetParent(routerLinks("{{properCase nameGroup}}", "api") + "/");
+export const Put{{properCase nameGroup}} = async (payload) => handPostParent(routerLinks("{{properCase nameGroup}}", "api")+'/', payload);
+{{/if}}
+{{#if isModalTable}}
+export const Get{{properCase nameModalTable}} = async (id, params) => {
+  const {data} = await axios.get(routerLinks("{{properCase nameModalTable}}", "api") + '/' + id, {params});
+  return data;
+};
+export const Post{{properCase nameModalTable}} = async (values) => {
+  const {data} = await axios.post(routerLinks("{{properCase nameModalTable}}", "api"), values);
+  if (data.message) message.success(data.message);
+  return data;
+};
+export const Put{{properCase nameModalTable}} = async (values, id) => {
+  const {data} = await axios.put(routerLinks("{{properCase nameModalTable}}", "api") + '/' + id, values);
+  if (data.message) message.success(data.message);
+  return data;
+};
+export const Delete{{properCase nameModalTable}} = async (id) => {
+  const {data} = await axios.delete(routerLinks("{{properCase nameModalTable}}", "api") + '/' + id);
+  if (data.message) message.success(data.message);
+  return null;
+};
+export const Patch{{properCase nameModalTable}} = async (values, id) => {
+  const {data} = await axios.patch(routerLinks("{{properCase nameModalTable}}", "api") + '/' + id, values);
+  if (data.message) message.success(data.message);
+};
+{{/if}}

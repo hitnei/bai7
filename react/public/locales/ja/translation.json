@@ -1,0 +1,205 @@
+{
+  "components": {
+    "Datatable": {
+      "pleaseEnterValueToSearch": "検索する値を入力してください",
+      "reset": "リセット",
+      "search": "探す",
+      "areYouSureWant": "よろしいですか",
+      "cancel": "キャンセル"
+    },
+    "Form": {
+      "rulesRequired": "これは必要項目です！",
+      "rulesEmail": "有効なメールアドレスを入力してください！",
+      "ruleMinLength": "{{min}}文字以上",
+      "rulePassword": "パスワードには、少なくとも1つの大文字と1つの数字が含まれている必要があります",
+      "confirm": "確認",
+      "rulesConfirmPassword": "入力した2つのパスワードに一貫性がありません。",
+      "incorrectPathFormat": "パス形式が正しくありません"
+    },
+    "ModalForm": {
+      "save": "セーブ",
+      "cancel": "キャンセル"
+    },
+    "MediaManagement": {
+      "filename": "ファイル名",
+      "fileSize": "ファイルサイズ",
+      "lastModified": "最終更新日",
+      "detail": "詳細",
+      "areYouSure": "消去してもよろしいですか？",
+      "mediaManagement": "メディア管理",
+      "filesOnSystem": "システム上のファイル",
+      "addFiles": "追加ファイル",
+      "multiFiles": "マルチファイル",
+      "createFolder": "フォルダーを作る",
+      "uploadFile": "ファイルのアップロード",
+      "moveUpLevel": "レベルを上げる",
+      "outsideLink": "外部リンク",
+      "save": "保存する",
+      "nameFolder": "名前フォルダ",
+      "onlyLettersAndDigitsAllowed": "文字と数字のみが許可されます"
+    }
+  },
+  "titles": {
+    "Login": "ログインする",
+    "Register": "登録",
+    "Settings": "設定",
+    "Profile": "プロフィール",
+    "Website": "ウェブサイト",
+    "System": "システム",
+    "Activity": "アクティビティ",
+    "Role": "役割",
+    "Permission": "許可",
+    "RolePermission": "役割の許可",
+    "Page": "ページ",
+    "Manage": "管理する",
+    "Trello": "Trello",
+    "Chat": "Chat",
+    "User": "User",
+    "Event": "Event",
+    "Startup": "startup",
+    "Member": "Member"
+  },
+  "routes": {
+    "Auth": {
+      "Login": {
+        "title": "管理者にサインイン",
+        "subTitle": "アカウントにログインするには、詳細を入力してください",
+        "email": "Eメール",
+        "password": "パスワード",
+        "remember": "私を覚えてますか",
+        "dontAccount": "まだアカウントをお持ちではありませんか？",
+        "signUp": "サインアップ！"
+      },
+      "Register": {
+        "title": "サインアップ",
+        "subTitle": "アカウントを作成するには、詳細を入力してください",
+        "email": "Eメール",
+        "password": "パスワード",
+        "phoneNumber": "電話番号",
+        "agreement": "契約",
+        "haveAccount": "すでにアカウントをお持ちですか",
+        "signIn": "サインイン！"
+      }
+    },
+    "Admin": {
+      "Profile": {
+        "avatar": "アバター",
+        "bio": "バイオ",
+        "name": "フルネーム",
+        "email": "Eメール",
+        "password": "パスワード",
+        "save": "保存する"
+      },
+      "Website": {
+        "Image Logo": "画像ロゴ",
+        "Name Website": "名前のウェブサイト",
+        "Keyword Website": "キーワードウェブサイト",
+        "Description Website": "説明ウェブサイト"
+      },
+      "Activity": {
+        "createdAt": "で作成",
+        "userName": "ユーザー名",
+        "modelName": "モデル名",
+        "modelId": "モデルID",
+        "description": "説明",
+        "changes": "変更点",
+        "ipAddress": "IPアドレス",
+        "device": "端末",
+        "platform": "プラットホーム",
+        "browser": "ブラウザ",
+        "before": "前",
+        "after": "後",
+        "created": "作成した",
+        "updated": "更新しました",
+        "deleted": "削除",
+        "disable": "無効にする",
+        "enable": "有効にする",
+        "add": "追加",
+        "view": "見る",
+        "modify": "変更",
+        "delete": "削除",
+        "User_role_id": "役割",
+        "User_password": "パスワード",
+        "User_avatar": "アバター",
+        "User_email": "Eメール",
+        "User_name": "名前",
+        "User_bio": "バイオ",
+        "User_status": "状態",
+        "Permission_order": "注文",
+        "RolePermission_can": "できる",
+        "Setting_value": "値",
+        "Setting_order": "注文"
+      },
+      "User": {
+        "roles": "役割",
+        "addNew": "新規追加",
+        "avatar": "アバター",
+        "noImage": "画像無し",
+        "name": "名前",
+        "email": "Eメール",
+        "thisEmailAddressIsAlreadyTaken": "このメールアドレスはすでに取得されています",
+        "password": "パスワード",
+        "Role": "役割",
+        "bio": "バイオ",
+        "createdAt": "で作成",
+        "updatedAt": "で更新",
+        "action": "アクション",
+        "edit": "編集",
+        "status": "状態",
+        "areYouSure": "本気ですか？",
+        "delete": "削除",
+        "thisNameIsAlreadyInUse": "この名前は既に使用されています",
+        "description": "説明",
+        "isAdmin": "管理者です",
+        "route": "ルート",
+        "thisRouteIsAlreadyInUse": "このルートはすでに使用されています",
+        "permission": "許可",
+        "can": "できる",
+        "add": "追加",
+        "view": "見る",
+        "setPermission": "権限を設定する"
+      },
+      "Blog": {
+        "BlogCategory": "ブログカテゴリ",
+        "image": "画像",
+        "content": "コンテンツ",
+        "slug": "Slug",
+        "keyword": "キーワード"
+      },
+      "Page": {
+        "Menu": "メニュー",
+        "Slideshow": "スライドショー",
+        "Type": "タイプ",
+        "Content": "コンテンツ",
+        "Media": "画像",
+        "Link": "リンク",
+        "Text Button": "テキストボタン",
+        "Position": "ポジション"
+      },
+      "Brand": {
+        "Title": "ブランド",
+        "Logo": "ロゴ"
+      },
+      "Event": {
+        "EventCategory": "カテゴリ",
+        "Time": "時間",
+        "Location": "ロケーション",
+        "Timeline": "タイムライン"
+      },
+      "Startup": {
+        "StartupCategory": "カテゴリ"
+      },
+      "Member": {
+        "MemberCategory": "カテゴリ",
+        "Position": "位置"
+      }
+    }
+  }
+}
+
+
+
+
+
+
+

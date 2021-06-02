@@ -1,0 +1,307 @@
+import {Button, Popconfirm, Space, Tooltip} from "antd";
+import moment from 'moment';
+
+import {slugify, convertToFiltersTable, formatTreeSelect} from "../../../utils/core";
+import {check_slug} from '../User/service';
+import routerLinks from "../../../utils/routerLinks";
+
+export const columns{{properCase name}} = ({t,
+{{#if isGroup}}
+  {{camelCase nameGroup}}s,
+{{/if}}
+  handleEdit{{properCase name}}, handleDelete{{properCase name}}, handlePatch{{properCase name}}, checkPermission
+}) => {
+  return [
+    {
+      title: t('routes.Admin.Blog.image'),
+      name: 'media',
+      tableItem: {
+        render: (url) => url ? <img src={url} alt="" width="50"/> : t('routes.Admin.User.noImage')
+      },
+      formItem: {
+        type: "media",
+        rules: [ { type: 'required' } ]
+      },
+    },
+    {
+      title: t('routes.Admin.User.name'),
+      name: 'name',
+      tableItem: {
+        filter: {type: 'search'},
+        sorter: true,
+      },
+      formItem: {
+        onBlur: (e, form) => {
+          const {getFieldValue, setFieldsValue, validateFields} = form;
+          if (!getFieldValue("slug")) {
+            setFieldsValue({slug: slugify(e.currentTarget.value)});
+            validateFields(["slug"]);
+          }
+        },
+        rules: [ { type: 'required' } ]
+      },
+    },
+    {
+      title: t('routes.Admin.Blog.slug'),
+      name: 'slug',
+      tableItem: {
+        filter: {type: 'search'},
+        sorter: true,
+      },
+      formItem: {
+        rules: [
+          {
+            type: 'custom',
+            validator: ({ getFieldValue }) => ({
+              validator: async (rule, value) => {
+                if (!!value && value.trim() !== "") {
+                  const data = await check_slug({
+                    slug: value,
+                    id: getFieldValue("id"),
+                    model: "{{lowerCase name}}s"
+                  });
+                  if (data) return Promise.resolve();
+                  else return Promise.reject('The slug has already been taken');
+                } else return Promise.resolve();
+              },
+            })
+          },
+          { type: 'required' }
+        ]
+      },
+    },
+{{#if isGroup}}
+    {
+      title: t('routes.Admin.Blog.BlogCategory'),
+      name: 'categories.{{camelCase name}}_category_id',
+      tableItem: {
+        filter: {
+          type: "checkbox",
+          list: convertToFiltersTable({{camelCase nameGroup}}s)
+        },
+        render: (text, record) => record.categories.map(item => item.name).join(", ")
+      },
+    },
+    {
+      title: t('routes.Admin.Blog.BlogCategory'),
+      name: 'category_id',
+      formItem: {
+        type: "tree_select",
+        list: formatTreeSelect({{camelCase nameGroup}}s),
+        mode: "multiple",
+        rules: [
+          { type: 'required' },
+        ]
+      },
+    },
+{{/if}}
+    {
+      title: t('routes.Admin.Blog.content'),
+      name: 'content',
+      formItem: {
+        type: "editor",
+      },
+    },
+    {
+      title: t('routes.Admin.Blog.keyword'),
+      name: "keyword",
+      formItem: {
+      }
+    },
+    {
+      title: t('routes.Admin.User.status'),
+      name: "status",
+      formItem: {
+        type: "switch",
+      }
+    },
+    {
+      title: t('routes.Admin.User.description'),
+      name: 'description',
+      formItem: {
+        type: "textarea"
+      },
+    },
+    {
+      title: t('routes.Admin.User.createdAt'),
+      name: 'created_at',
+      tableItem: {
+        filter: { type: "date" },
+        sorter: true,
+        render(text) {
+          return moment(text).format("DD/MM/YYYY");
+        }
+      },
+    },
+    {
+      title: t('routes.Admin.User.updatedAt'),
+      name: 'updated_at',
+      tableItem: {
+        filter: { type: "date" },
+        sorter: true,
+        render(text) {
+          return moment(text).format("DD/MM/YYYY");
+        }
+      },
+    },
+    {
+      title: t('routes.Admin.User.action'),
+      tableItem: {
+        render: (text, record) => (
+          <Space size="middle">
+            {checkPermission(routerLinks("{{properCase name}}", "api"), "PUT") && (
+              <Tooltip title={t('routes.Admin.User.edit')}>
+                <Button onClick={() => handleEdit{{properCase name}}(record)} size="small" icon={<i className="las la-edit la-lg" />} />
+              </Tooltip>
+            )}
+            {checkPermission(routerLinks("{{properCase name}}", "api"), "PUT") && (
+              <Tooltip title={t('routes.Admin.User.status')}>
+                <Button
+                  onClick={() => handlePatch{{properCase name}}({status: (record.status === 1 ? 0 : 1)}, record.id)}
+                  type={record.status === 0 ? "primary" : ""}
+                  danger={record.status === 0}
+                  size="small"
+                  icon={<i className={`las ${ record.status === 0 ? "la-low-vision" : "la-eye"}`} />}
+                />
+              </Tooltip>
+            )}
+            {checkPermission(routerLinks("{{properCase name}}", "api"), "DELETE") && (
+              <Popconfirm placement="left" title={t('components.Datatable.areYouSureWant')} onConfirm={() => handleDelete{{properCase name}}(record.id)}>
+                <Tooltip title={t('routes.Admin.User.delete')}>
+                  <Button size="small" icon={<i className="las la-trash-alt la-lg" />} />
+                </Tooltip>
+              </Popconfirm>
+            )}
+          </Space>
+        ),
+      }
+    },
+  ];
+};
+{{#if isGroup}}
+export const columns{{properCase nameGroup}} = ({t}) => [
+  {
+    title: t('routes.Admin.User.name'),
+    name: 'name',
+    formItem: {
+      onBlur: (e, form) => {
+        const {getFieldValue, setFieldsValue, validateFields} = form;
+        if (!getFieldValue("slug")) {
+          setFieldsValue({slug: slugify(e.currentTarget.value)});
+          validateFields(["slug"]);
+        }
+      },
+    },
+  },
+  {
+    title: t('routes.Admin.Blog.slug'),
+    name: 'slug',
+    tableItem: {
+      filter: {type: 'search'},
+      sorter: true,
+    },
+    formItem: {
+      rules: [
+        {
+          type: 'custom',
+          validator: ({ getFieldValue }) => ({
+            validator: async (rule, value) => {
+              if (!!value && value.trim() !== "") {
+                const data = await check_slug({
+                  slug: value,
+                  id: getFieldValue("id"),
+                  model: "{{lowerCase name}}_categories"
+                });
+                if (data) return Promise.resolve();
+                else return Promise.reject('The slug has already been taken');
+              } else return Promise.resolve();
+            },
+          })
+        },
+        { type: 'required' }
+      ]
+    },
+  },
+  {
+    title: t('routes.Admin.Blog.keyword'),
+    name: "keyword",
+    formItem: {
+    }
+  },
+  {
+    title: t('routes.Admin.User.description'),
+    name: 'description',
+    formItem: {
+      type: "textarea",
+    },
+  },
+  {
+    title: t('routes.Admin.User.status'),
+    name: 'status',
+    formItem: {
+      type: "switch",
+    },
+  },
+];
+{{/if}}
+{{#if isModalTable}}
+export const columns{{properCase nameModalTable}} = ({t, handleEdit{{properCase nameModalTable}}, handlePatch{{properCase nameModalTable}}, handleDelete{{properCase nameModalTable}}, checkPermission}) => [
+  {
+    name: 'role_id',
+    formItem: {
+      type: 'hidden',
+    }
+  },
+  {
+    title: t('routes.Admin.User.can'),
+    name: 'can',
+    tableItem: {
+      render(text) {
+        return text.join(', ');
+      }
+    },
+    formItem: {
+      type: "select",
+      mode: "multiple",
+      list: [
+        { value: "GET", label: t('routes.Admin.User.view') },
+        { value: "POST", label: t('routes.Admin.User.add') },
+        { value: "PUT", label: t('routes.Admin.User.edit') },
+        { value: "DELETE", label: t('routes.Admin.User.delete') },
+      ]
+    },
+  },
+  {
+    title: t('routes.Admin.User.action'),
+    tableItem: {
+      render: (text, record) => (
+        <Space size="middle">
+          {checkPermission(routerLinks("{{properCase nameModalTable}}", "api"), "PUT") && (
+            <Tooltip title={t('routes.Admin.User.edit')}>
+              <Button onClick={() => handleEdit{{properCase nameModalTable}}(record)} size="small" icon={<i className="las la-edit la-lg" />} />
+            </Tooltip>
+          )}
+          {checkPermission(routerLinks("{{properCase nameModalTable}}", "api"), "PUT") && (
+            <Tooltip title={t('routes.Admin.User.status')}>
+              <Button
+                  onClick={() => handlePatch{{properCase nameModalTable}}({status: (record.status === 1 ? 0 : 1)}, record.id)}
+                  type={record.status === 0 ? "primary" : ""}
+                  danger={record.status === 0}
+                  size="small"
+                  icon={<i className={`las ${ record.status === 0 ? "la-low-vision" : "la-eye"}`} />}
+              />
+            </Tooltip>
+          )}
+          {checkPermission(routerLinks("{{properCase nameModalTable}}", "api"), "DELETE") && (
+            <Popconfirm placement="left" title={t('components.Datatable.areYouSureWant')} onConfirm={() => handleDelete{{properCase nameModalTable}}(record.id)}>
+              <Tooltip title={t('routes.Admin.User.delete')}>
+                <Button size="small" icon={<i className="las la-trash-alt la-lg" />} />
+              </Tooltip>
+            </Popconfirm>
+          )}
+        </Space>
+      ),
+    }
+  },
+];
+{{/if}}

@@ -1,0 +1,205 @@
+{
+  "components": {
+    "Datatable": {
+      "pleaseEnterValueToSearch": "Vui lòng nhập giá trị để tìm kiếm",
+      "reset": "Cài lại",
+      "search": "Tìm kiếm",
+      "areYouSureWant": "Bạn có chắc muốn",
+      "cancel": "Huỷ bỏ"
+    },
+    "Form": {
+      "rulesRequired": "Đây là trường bắt buộc!",
+      "rulesEmail": "Vui lòng nhập địa chỉ email hợp lệ!",
+      "ruleMinLength": "Tối thiểu phải có {{min}} ký tự!",
+      "rulePassword": "Mật khẩu phải chứa ít nhất một chữ cái viết hoa và một số",
+      "confirm": "Xác nhận",
+      "rulesConfirmPassword": "Hai mật khẩu bạn nhập không nhất quán!",
+      "incorrectPathFormat": "Định dạng đường dẫn không đúng"
+    },
+    "ModalForm": {
+      "save": "Lưu lại",
+      "cancel": "Huỷ bỏ"
+    },
+    "MediaManagement": {
+      "filename": "Tên tệp",
+      "fileSize": "Kích thước tập tin",
+      "lastModified": "Sửa đổi lần cuối",
+      "detail": "Chi tiết",
+      "areYouSure": "Bạn có chắc chắn muốn xóa?",
+      "mediaManagement": "Quản lý phương tiện truyền thông",
+      "filesOnSystem": "Tệp trên hệ thống",
+      "addFiles": "Thêm các tập tin",
+      "multiFiles": "Nhiều tệp",
+      "createFolder": "Tạo thư mục",
+      "uploadFile": "Tải lên tệp",
+      "moveUpLevel": "Tiến lên một cấp độ",
+      "outsideLink": "Liên kết bên ngoài",
+      "save": "Lưu lại",
+      "nameFolder": "Tên thư mục",
+      "onlyLettersAndDigitsAllowed": "Chỉ cho phép các chữ cái và chữ số"
+    }
+  },
+  "titles": {
+    "Login": "Đăng nhập",
+    "Register": "Đăng ký",
+    "Settings": "Cài đặt",
+    "Profile": "Hồ sơ",
+    "Website": "Trang mạng",
+    "System": "Hệ thống",
+    "Activity": "Hoạt động",
+    "Role": "Vai trò",
+    "Permission": "Sự cho phép",
+    "RolePermission": "Quyền vai trò",
+    "Page": "Trang",
+    "Manage": "Quản lý",
+    "Trello": "Trello",
+    "Chat": "Trò chuyện",
+    "User": "User",
+    "Event": "Event",
+    "Startup": "startup",
+    "Member": "Member"
+  },
+  "routes": {
+    "Auth": {
+      "Login": {
+        "title": "Đăng nhập",
+        "subTitle": "Nhập thông tin chi tiết của bạn để đăng nhập",
+        "email": "E-mail",
+        "password": "Mật khẩu",
+        "remember": "Ghi nhớ",
+        "dontAccount": "Vẫn chưa có tài khoản?",
+        "signUp": "Đăng ký!"
+      },
+      "Register": {
+        "title": "Đăng ký",
+        "subTitle": "Nhập thông tin chi tiết của bạn để tạo tài khoản của bạn",
+        "email": "E-mail",
+        "password": "Mật khẩu",
+        "phoneNumber": "Số điện thoại",
+        "agreement": "Hợp đồng",
+        "haveAccount": "Bạn đã có tài khoản chưa",
+        "signIn": "Đăng nhập"
+      }
+    },
+    "Admin": {
+      "Profile": {
+        "avatar": "Ảnh đại diện",
+        "bio": "Tiểu sử",
+        "name": "Họ và tên",
+        "email": "E-mail",
+        "password": "Mật khẩu",
+        "save": "Lưu lại"
+      },
+      "Website": {
+        "Image Logo": "Hình ảnh Logo",
+        "Name Website": "Tên trang web",
+        "Keyword Website": "Từ khóa website",
+        "Description Website": "Mô tả Trang web"
+      },
+      "Activity": {
+        "createdAt": "Được tạo lúc",
+        "userName": "Tên tài khoản",
+        "modelName": "Tên Model",
+        "modelId": "Model Id",
+        "description": "Mô tả",
+        "changes": "Những thay đổi",
+        "ipAddress": "Địa chỉ IP",
+        "device": "Thiết bị",
+        "platform": "Nền tảng",
+        "browser": "Trình duyệt",
+        "before": "Trước",
+        "after": "Sau",
+        "created": "Đã tạo",
+        "updated": "Đã cập nhật",
+        "deleted": "Đã xóa",
+        "disable": "Vô hiệu hóa",
+        "enable": "Kích hoạt",
+        "add": "Thêm",
+        "view": "Xem",
+        "modify": "Sửa",
+        "delete": "Xóa",
+        "User_role_id": "Vai trò",
+        "User_password": "Mật khẩu",
+        "User_avatar": "Ảnh đại diện",
+        "User_email": "E-mail",
+        "User_name": "Tên",
+        "User_bio": "Tiểu sử",
+        "User_status": "Trạng thái",
+        "Permission_order": "Thứ tự",
+        "RolePermission_can": "Có thể",
+        "Setting_value": "Giá trị",
+        "Setting_order": "Thứ tự"
+      },
+      "User": {
+        "roles": "Vai trò",
+        "addNew": "Thêm mới",
+        "avatar": "Ảnh đại diện",
+        "noImage": "Không có ảnh",
+        "name": "Tên",
+        "email": "E-mail",
+        "thisEmailAddressIsAlreadyTaken": "Địa chỉ email này đã được sử dụng",
+        "password": "Mật khẩu",
+        "role": "Vai trò",
+        "bio": "Tiểu sử",
+        "createdAt": "Tạo lúc",
+        "updatedAt": "Cập nhật lúc",
+        "action": "Hoạt động",
+        "edit": "Chỉnh sửa",
+        "status": "Trạng thái",
+        "areYouSure": "Bạn có chắc chắn không?",
+        "delete": "Xóa bỏ",
+        "thisNameIsAlreadyInUse": "Tên này đã được sử dụng",
+        "description": "Mô tả",
+        "isAdmin": "Là quản trị viên",
+        "route": "Lộ trình",
+        "thisRouteIsAlreadyInUse": "Tuyến đường này đã được sử dụng",
+        "permission": "Quyền",
+        "can": "Có thể",
+        "add": "Thêm",
+        "view": "Xem",
+        "setPermission": "Phân quyền"
+      },
+      "Blog": {
+        "BlogCategory": "Danh mục Blog",
+        "image": "Ảnh",
+        "content": "Nội dung",
+        "slug": "Slug",
+        "keyword": "Từ khóa"
+      },
+      "Page": {
+        "Menu": "Trình đơn",
+        "Slideshow": "Trình chiếu",
+        "Type": "Kiểu",
+        "Content": "Nội dung",
+        "Media": "Ảnh",
+        "Link": "Liên kết",
+        "Text Button": "Chữ của nút",
+        "Position": "Vị trí"
+      },
+      "Brand": {
+        "Brand": "Nhãn hiệu",
+        "Logo": "Logo"
+      },
+      "Event": {
+        "EventCategory": "Danh mục",
+        "Time": "Thời gian",
+        "Location": "Địa điểm",
+        "Timeline": "Mốc thời gian"
+      },
+      "Startup": {
+        "StartupCategory": "Danh mục"
+      },
+      "Member": {
+        "MemberCategory": "Danh mục",
+        "Position": "Vị trí"
+      }
+    }
+  }
+}
+
+
+
+
+
+
+

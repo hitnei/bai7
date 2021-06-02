@@ -1,0 +1,206 @@
+{
+  "components": {
+    "Datatable": {
+      "pleaseEnterValueToSearch": "Please enter value to search",
+      "reset": "Reset",
+      "search": "Search",
+      "areYouSureWant": "Are you sure want",
+      "cancel": "Cancel"
+    },
+    "Form": {
+      "rulesRequired": "This is a required field!",
+      "rulesEmail": "Please enter a valid email address!",
+      "ruleMinLength": "Minimum {{min}} characters",
+      "rulePassword": "Password must contain at least one uppercase letter and one number",
+      "confirm": "Confirm",
+      "rulesConfirmPassword": "Two passwords that you enter is inconsistent!",
+      "incorrectPathFormat": "Incorrect path format"
+    },
+    "ModalForm": {
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "MediaManagement": {
+      "filename": "File name",
+      "fileSize": "File size",
+      "lastModified": "Last modified",
+      "detail": "Detail",
+      "areYouSure": "Are you sure you want to delete?",
+      "mediaManagement": "Media Management",
+      "filesOnSystem": "Files on system",
+      "addFiles": "Add files",
+      "multiFiles": "Multi files",
+      "createFolder": "Create folder",
+      "uploadFile": "Upload file",
+      "moveUpLevel": "Move up a level",
+      "outsideLink": "Outside link",
+      "save": "Save",
+      "nameFolder": "Name folder",
+      "onlyLettersAndDigitsAllowed": "Only letters and digits allowed"
+    }
+  },
+  "titles": {
+    "Login": "Login",
+    "Register": "Register",
+    "Settings": "Settings",
+    "Profile": "Profile",
+    "Website": "Website",
+    "System": "System",
+    "Activity": "Activity",
+    "Role": "Role",
+    "Permission": "Permission",
+    "RolePermission": "Role Permission",
+    "Blog": "Blog",
+    "Event": "Event",
+    "Startup": "Startup",
+    "Member": "Member",
+    "Page": "Page",
+    "Manage": "Manage",
+    "Trello": "Trello",
+    "Chat": "Chat",
+    "User": "User"
+  },
+  "routes": {
+    "Auth": {
+      "Login": {
+        "title": "Sign In",
+        "subTitle": "Enter your details to login to your account",
+        "email": "Email",
+        "password": "Password",
+        "remember": "Remember Me",
+        "dontAccount": "Don't have an account yet?",
+        "signUp": "Sign Up!"
+      },
+      "Register": {
+        "title": "Sign Up",
+        "subTitle": "Enter your details to create your account",
+        "email": "Email",
+        "password": "Password",
+        "phoneNumber": "Phone Number",
+        "agreement": "Agreement",
+        "haveAccount": "Do you already have an account",
+        "signIn": "Sign In!"
+      }
+    },
+    "Admin": {
+      "Profile": {
+        "avatar": "Avatar",
+        "bio": "Bio",
+        "name": "Full name",
+        "email": "Email",
+        "password": "Password",
+        "save": "Save"
+      },
+      "Website": {
+        "Image Logo": "Image Logo",
+        "Name Website": "Name Website",
+        "Keyword Website": "Keyword Website",
+        "Description Website": "Description Website"
+      },
+      "Activity": {
+        "createdAt": "Created at",
+        "userName": "User name",
+        "modelName": "Model name",
+        "modelId": "Model Id",
+        "description": "Description",
+        "changes": "Changes",
+        "ipAddress": "IP Address",
+        "device": "Device",
+        "platform": "Platform",
+        "browser": "Browser",
+        "before": "Before",
+        "after": "After",
+        "created": "Created",
+        "updated": "Updated",
+        "deleted": "Deleted",
+        "disable": "Disable",
+        "enable": "Enable",
+        "add": "Add",
+        "view": "View",
+        "modify": "Modify",
+        "delete": "Delete",
+        "User_role_id": "Role",
+        "User_password": "Password",
+        "User_avatar": "Avatar",
+        "User_email": "Email",
+        "User_name": "Name",
+        "User_bio": "Bio",
+        "User_status": "Status",
+        "Permission_order": "Order",
+        "RolePermission_can": "Can",
+        "Setting_value": "Value",
+        "Setting_order": "Order"
+      },
+      "User": {
+        "roles": "Roles",
+        "addNew": "Add new",
+        "avatar": "Avatar",
+        "noImage": "No Image",
+        "name": "Name",
+        "email": "Email",
+        "thisEmailAddressIsAlreadyTaken": "This email address is already taken",
+        "password": "Password",
+        "Role": "Role",
+        "bio": "Bio",
+        "createdAt": "Created at",
+        "updatedAt": "Updated at",
+        "action": "Action",
+        "edit": "Edit",
+        "status": "Status",
+        "areYouSure": "Are you sure?",
+        "delete": "Delete",
+        "thisNameIsAlreadyInUse": "This name is already in use",
+        "description": "Description",
+        "isAdmin": "Is Admin",
+        "route": "Route",
+        "thisRouteIsAlreadyInUse": "This route is already in use",
+        "permission": "Permission",
+        "can": "Can",
+        "add": "Add",
+        "view": "View",
+        "setPermission": "Set Permission"
+      },
+      "Blog": {
+        "BlogCategory": "Blog Category",
+        "image": "Image",
+        "content": "Content",
+        "slug": "Slug",
+        "keyword": "Keyword"
+      },
+      "Page": {
+        "Menu": "Menu",
+        "Slideshow": "Slideshow",
+        "Type": "Type",
+        "Content": "Content",
+        "Media": "Media",
+        "Link": "Link",
+        "Text Button": "Text Button",
+        "Position": "Position"
+      },
+      "Brand": {
+        "Title": "Brand",
+        "Logo": "Logo"
+      },
+      "Event": {
+        "EventCategory": "Category",
+        "Time": "Time",
+        "Location": "Location",
+        "Timeline": "Timeline"
+      },
+      "Startup": {
+        "StartupCategory": "Category"
+      },
+      "Member": {
+        "MemberCategory": "Category",
+        "Position": "Position"
+      }
+    }
+  }
+}
+
+
+
+
+
+
+

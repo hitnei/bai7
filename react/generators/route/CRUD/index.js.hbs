@@ -1,0 +1,178 @@
+import React, { useState, Fragment{{#if isGroup}}, useEffect{{/if}} } from "react";
+import {Button, Space} from 'antd';
+
+import HookDataTable from "../../../hooks/DataTable";
+import HookModalForm from "../../../hooks/ModalForm";
+{{#if isGroup}}
+import HookModalDrag from "../../../hooks/ModalDrag";
+{{/if}}
+{{#if isModalTable}}
+import HookModalDataTable from "../../../hooks/ModalDataTable";
+{{/if}}
+
+import {
+  columns{{properCase name}},
+{{#if isGroup}}
+  columns{{properCase nameGroup}},
+{{/if}}
+{{#if isModalTable}}
+  columns{{properCase nameModalTable}}
+{{/if}}
+} from "./column";
+import {useTranslation} from "react-i18next";
+import {
+  Get{{properCase name}}, Post{{properCase name}}, Put{{properCase name}}, Delete{{properCase name}}, Patch{{properCase name}},
+{{#if isGroup}}
+  Get{{properCase nameGroup}}, Put{{properCase nameGroup}},
+{{/if}}
+{{#if isModalTable}}
+  Get{{properCase nameModalTable}}, Post{{properCase nameModalTable}}, Put{{properCase nameModalTable}}, Delete{{properCase nameModalTable}}, Patch{{properCase nameModalTable}},
+{{/if}}
+} from "./service.js";
+import {useAuth} from "../../../global";
+import routerLinks from "../../../utils/routerLinks";
+
+export default () => {
+  const { t } = useTranslation();
+  const {checkPermission} = useAuth();
+
+  const [isLoading, setIsLoading] = useState(true);
+{{#if isGroup}}
+  const [{{camelCase nameGroup}}s, set{{properCase nameGroup}}s] = useState([]);
+  useEffect(async () => {
+    if (checkPermission(routerLinks("{{properCase nameGroup}}", "api"))) {
+      const _data = await Get{{properCase nameGroup}}();
+      set{{properCase nameGroup}}s(_data);
+    }
+  }, []);
+{{/if}}
+
+  const [handleEdit{{properCase name}}, handlePatch{{properCase name}}, handleDelete{{properCase name}}, ModalForm{{properCase name}}] = HookModalForm({
+    title: (data) => !data?.id ? t('routes.Admin.User.addNew') : t('routes.Admin.User.edit'),
+    isLoading, setIsLoading,
+    handleChange: async () => {
+      return await handleChange();
+    },
+    columns: columns{{properCase name}}({
+      t,
+{{#if isGroup}}
+      {{camelCase nameGroup}}s: {{camelCase nameGroup}}s.map(item => ({ label: item.name, value: item.id }))
+{{/if}}
+    }),
+    Post: Post{{properCase name}},
+    Put: Put{{properCase name}},
+    Patch: Patch{{properCase name}},
+    Delete: Delete{{properCase name}},
+    firstRun: async () => {
+{{#if isGroup}}
+      if (checkPermission(routerLinks("{{properCase nameGroup}}", "api"))) {
+        const _data = await Get{{properCase nameGroup}}();
+        set{{properCase nameGroup}}s(_data);
+      }
+{{/if}}
+    }
+  });
+{{#if isModalTable}}
+  const [handleEdit{{properCase nameModalTable}}, handlePatch{{properCase nameModalTable}}, handleDelete{{properCase nameModalTable}}, ModalForm{{properCase nameModalTable}}] = HookModalForm({
+    title: (data) => !data?.id ? t('routes.Admin.User.addNew') : t('routes.Admin.User.edit'),
+    isLoading, setIsLoading,
+    handleChange: async () => {
+      return await handleChangeTable{{properCase nameModalTable}}();
+    },
+    columns: columns{{properCase nameModalTable}}({
+      t,
+    }),
+    Post: Post{{properCase nameModalTable}},
+    Put: Put{{properCase nameModalTable}},
+    Patch: Patch{{properCase nameModalTable}},
+    Delete: Delete{{properCase nameModalTable}},
+    firstRun: async () => {
+{{#if isGroup}}
+      if (checkPermission(routerLinks("{{properCase nameGroup}}", "api"))) {
+        const _data = await Get{{properCase nameGroup}}();
+        set{{properCase nameGroup}}s(_data);
+      }
+{{/if}}
+    }
+  });
+
+  const [handleShowTable{{properCase nameModalTable}}, handleChangeTable{{properCase nameModalTable}}, ModalDataTable{{properCase nameModalTable}}] = HookModalDataTable({
+    title: t('routes.Admin.{{properCase name}}.{{nameModalTable}}'),
+    isLoading, setIsLoading,
+    Get: Get{{properCase nameModalTable}},
+    columns: columns{{properCase nameModalTable}}({
+      t, handleEdit{{properCase nameModalTable}}, handlePatch{{properCase nameModalTable}}, handleDelete{{properCase nameModalTable}},
+      checkPermission,
+    }),
+    leftHeader: ({{ camelCase nameGroup }}_id) => (
+      <Space>
+        {checkPermission(routerLinks("{{properCase nameModalTable}}","api", "POST")) && (
+          <Button type="primary" onClick={() => handleEdit{{properCase nameModalTable}}({ {{camelCase nameGroup}}_id}) }>
+            <i className="las la-plus la-lg mr-5"/>
+            {t('routes.Admin.User.addNew')}
+          </Button>
+        )}
+      </Space>
+    ),
+    firstRun: async () => {
+{{#if isGroup}}
+      if (checkPermission(routerLinks("{{properCase nameGroup}}", "api"))) {
+        const _data = await Get{{properCase nameGroup}}();
+        set{{properCase nameGroup}}s(_data);
+      }
+{{/if}}
+    }
+  });
+{{/if}}
+{{#if isGroup}}
+  const [handleShowDrag{{properCase nameGroup}}, ModalDrag{{properCase nameGroup}}] = HookModalDrag({
+    title: t('routes.Admin.{{properCase name}}.{{nameGroup}}'),
+    isLoading, setIsLoading,
+    columns: columns{{properCase nameGroup}}({t}),
+    Get: Get{{properCase nameGroup}},
+    Put: Put{{properCase nameGroup}},
+{{#if isModalTable}}
+    handleShowModal: handleShowTable{{properCase nameModalTable}},
+{{/if}}
+    namePermission: "{{properCase nameGroup}}",
+  });
+{{/if}}
+
+  const [handleChange, DataTable{{properCase name}}] = HookDataTable({
+    isLoading, setIsLoading,
+    Get: Get{{properCase name}},
+    columns: columns{{properCase name}}({t, {{#if isGroup}}{{camelCase nameGroup}}s, {{/if}}handleEdit{{properCase name}}, handleDelete{{properCase name}}, handlePatch{{properCase name}}, checkPermission}),
+    leftHeader: (
+      <Space>
+        {checkPermission(routerLinks("{{properCase name}}", "api"), "POST") && (
+          <Button type="primary" onClick={() => handleEdit{{properCase name}}()}>
+            <i className="las la-plus la-lg mr-5"/>
+            {t('routes.Admin.User.addNew')}
+          </Button>
+        )}
+{{#if isGroup}}
+        {checkPermission(routerLinks("{{properCase nameGroup}}", "api")) && (
+          <Button type="primary" onClick={ handleShowDrag{{properCase nameGroup}} }>
+            <i className="las la-briefcase la-lg mr-5"/>
+            {t('routes.Admin.{{properCase name}}.{{nameGroup}}')}
+          </Button>
+        )}
+{{/if}}
+      </Space>
+    )
+  });
+
+  return (
+    <Fragment>
+{{#if isModalTable}}
+      {ModalDataTable{{properCase nameModalTable}}()}
+      {ModalForm{{properCase nameModalTable}}()}
+{{/if}}
+{{#if isGroup}}
+      {ModalDrag{{properCase nameGroup}}()}
+{{/if}}
+      {DataTable{{properCase name}}()}
+      {ModalForm{{properCase name}}()}
+    </Fragment>
+  );
+};
